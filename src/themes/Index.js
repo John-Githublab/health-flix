@@ -2,8 +2,10 @@ class Theme {
   static colors = {
     primary: '#1EA5FC',
     secondary: '',
-    dark: '#000000',
+    dark: '#24292E',
     light: '#ffffff',
+    black: '#000000',
+    shade: '#888888',
   };
 
   static fontSizes = {

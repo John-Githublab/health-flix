@@ -11,7 +11,8 @@ const Stack = createNativeStackNavigator();
 // navigation to be move forth and back
 const navigates = [
   {
-    path: 'Home',
+    title: 'Home',
+    path: 'home',
     component: Home,
     options: {},
   },
@@ -23,13 +24,13 @@ function Routes() {
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         {navigates?.map((value, key) => {
-          const {options, path, component} = value;
+          const {options, path, component, title} = value;
           return (
             <Stack.Screen
               key={key}
               name={path}
               options={{
-                header: props => <Header {...props} />,
+                header: props => <Header {...props} title={title} />,
                 headerShown: true,
                 ...options,
               }}

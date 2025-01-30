@@ -1,19 +1,17 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
-import React, {useState} from 'react';
-import Theme from '@themes/Index';
 import Images from '@constants/Image';
+import Theme from '@themes/Index';
+import {
+  Image,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Drawer from '@components/drawer/Index';
 
-const Header = props => {
+const Header = (props: any) => {
   return (
     <View style={style.root}>
       <StatusBar
@@ -23,19 +21,15 @@ const Header = props => {
       />
 
       {props?.back ? (
-        <View className="flex-row items-center" style={{gap: 10}}>
-          <TouchableOpacity onPress={() => props?.navigation?.goBack()}>
+        <View style={{gap: 10}}>
+          <TouchableOpacity onPress={props?.navigation?.goBack}>
             <Ionicons name="chevron-back" size={24} color="white" />
           </TouchableOpacity>
-
-          <Text style={style.textMain}>{props?.route?.name}</Text>
+          <Text style={style.textMain}>{props?.title}</Text>
         </View>
       ) : (
-        <TouchableOpacity onPress={() => props?.setisOpen(p => !p)}>
-          <Image style={style.icon} source={Images.menu} />
-        </TouchableOpacity>
+        <Text style={style.textMain}>{props?.title}</Text>
       )}
-      {!props?.back && <Text style={style.textMain}>{props?.route?.name}</Text>}
       <TouchableOpacity>
         <Icon name="bell" size={24} color="white" />
       </TouchableOpacity>
@@ -48,7 +42,7 @@ const style = StyleSheet.create({
     backgroundColor: Theme.colors.primary,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 21,
+    paddingVertical: 16,
     paddingHorizontal: 15,
     alignItems: 'center',
   },
